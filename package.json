@@ -21,7 +21,7 @@
     "build": "babel ./src -d ./lib",
     "pretest": "npm run build",
     "test": "mocha --compilers js:babel-core/register ./test/**/*.js",
-    "precommit": "npm test && npm build",
+    "precommit": "npm test && npm run build",
     "prepublish": "npm run build"
   },
 
