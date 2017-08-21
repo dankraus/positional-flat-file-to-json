@@ -55,8 +55,8 @@ describe('Converter', function () {
     });
   });
 
-  it('should read file and return converted Json ', function() {
-    return converter.convertToJsonFromFile(sourceFileConfig, sourceFilepath, outputFilepath).then(function(result) {
+  it('should read file and return converted Json', function() {
+    return converter.convertToJsonFromFile(sourceFileConfig, sourceFilepath).then(function(result) {
       assert.deepEqual(result, expectedJson);
     });
   });

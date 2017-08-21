@@ -18,7 +18,7 @@ export let writeAsJsonFromFile = (sourceFileConfig, sourceFilepath, outputFilepa
   })
 });
 
-export let convertToJsonFromFile = (sourceFileConfig, sourceFilepath, outputFilepath) => new Promise((resolve, reject) => {
+export let convertToJsonFromFile = (sourceFileConfig, sourceFilepath) => new Promise((resolve, reject) => {
   let convertedData = [];
   let rd = readline.createInterface({input: fs.createReadStream(sourceFilepath)});
  
