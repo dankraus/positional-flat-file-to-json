@@ -22,6 +22,7 @@ describe('Converter', function () {
   };
 
   const sourceFilepath = path.join(__dirname, 'test-flat-file.txt');
+  const sourceString = fs.readFileSync(sourceFilepath).toString();
   const outputFilepath = path.join(__dirname, 'tmp', 'converted-file.Json');
 
   const expectedJson = [
@@ -57,6 +58,12 @@ describe('Converter', function () {
 
   it('should read file and return converted Json', function() {
     return converter.convertToJsonFromFile(sourceFileConfig, sourceFilepath).then(function(result) {
+      assert.deepEqual(result, expectedJson);
+    });
+  });
+
+    it('should return converted Json', function() {
+    return converter.convertToJson(sourceFileConfig, sourceString).then(function(result) {
       assert.deepEqual(result, expectedJson);
     });
   });

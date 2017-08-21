@@ -32,6 +32,17 @@ export let convertToJsonFromFile = (sourceFileConfig, sourceFilepath) => new Pro
   })
 });
 
+export let convertToJson = (sourceFileConfig, sourceString) => new Promise((resolve, reject) => {
+  let convertedData = [];
+  const lines = sourceString.match(/[^\r\n]+/g);
+
+  convertedData = lines.map((line) => {
+    return convertLine(sourceFileConfig, line);
+  });
+
+  resolve(convertedData);
+});
+
 function convertLine(sourceFileConfig, line) {
   let convertedLine = {};
   
