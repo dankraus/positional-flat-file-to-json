@@ -48,7 +48,7 @@ describe('Converter', function () {
   ];
   
   it('should read file and write converted Json to file', function() {
-    return converter.writeAsJson(sourceFileConfig, sourceFilepath, outputFilepath).then(function(result) {
+    return converter.writeAsJsonFromFile(sourceFileConfig, sourceFilepath, outputFilepath).then(function() {
       return fs.readJson(outputFilepath).then(function(writtenJson) {
         assert.deepEqual(writtenJson, expectedJson);
       });
@@ -56,7 +56,7 @@ describe('Converter', function () {
   });
 
   it('should read file and return converted Json ', function() {
-    return converter.convertToJson(sourceFileConfig, sourceFilepath, outputFilepath).then(function(result) {
+    return converter.convertToJsonFromFile(sourceFileConfig, sourceFilepath, outputFilepath).then(function(result) {
       assert.deepEqual(result, expectedJson);
     });
   });

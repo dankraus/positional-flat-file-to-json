@@ -2,7 +2,7 @@
 import * as fs from 'fs-extra';
 import * as readline from 'readline';
 
-export let writeAsJson = (sourceFileConfig, sourceFilepath, outputFilepath) => new Promise((resolve, reject) => {
+export let writeAsJsonFromFile = (sourceFileConfig, sourceFilepath, outputFilepath) => new Promise((resolve, reject) => {
   let convertedData = [];
   let rd = readline.createInterface({input: fs.createReadStream(sourceFilepath)});
  
@@ -18,7 +18,7 @@ export let writeAsJson = (sourceFileConfig, sourceFilepath, outputFilepath) => n
   })
 });
 
-export let convertToJson = (sourceFileConfig, sourceFilepath, outputFilepath) => new Promise((resolve, reject) => {
+export let convertToJsonFromFile = (sourceFileConfig, sourceFilepath, outputFilepath) => new Promise((resolve, reject) => {
   let convertedData = [];
   let rd = readline.createInterface({input: fs.createReadStream(sourceFilepath)});
  
