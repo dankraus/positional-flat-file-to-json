@@ -1,6 +1,6 @@
 {
   "name": "positional-flat-file-to-json",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Converts a positional flat file to json",
   "main": "./dist/index.js",
   "dependencies": {
@@ -27,11 +27,15 @@
     "prepublish": "npm run build"
   },
   "xo": {
-    "env": ["mocha"],
+    "env": [
+      "mocha"
+    ],
     "rules": {
       "no-unused-vars": [
         "error",
-        { "varsIgnorePattern": "mocha" }
+        {
+          "varsIgnorePattern": "mocha"
+        }
       ]
     }
   },
