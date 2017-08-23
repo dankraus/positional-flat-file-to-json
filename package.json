@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "test"
+    "url": "https://github.com/dankraus/positional-flat-file-to-json"
   },
   "keywords": [
     "flatfile",
