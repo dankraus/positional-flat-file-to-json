@@ -57,13 +57,13 @@ describe('Converter', () => {
 	});
 
 	it('should read file and return converted Json', () => {
-		return converter.convertToJsonFromFile(sourceFileConfig, sourceFilepath).then(result => {
+		return converter.toJsonFromFile(sourceFileConfig, sourceFilepath).then(result => {
 			assert.deepEqual(result, expectedJson);
 		});
 	});
 
 	it('should return converted Json', () => {
-		return converter.convertToJson(sourceFileConfig, sourceString).then(result => {
+		return converter.toJson(sourceFileConfig, sourceString).then(result => {
 			assert.deepEqual(result, expectedJson);
 		});
 	});

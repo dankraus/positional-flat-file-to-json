@@ -18,7 +18,7 @@ export const writeAsJsonFromFile = (sourceFileConfig, sourceFilepath, outputFile
 	});
 });
 
-export const convertToJsonFromFile = (sourceFileConfig, sourceFilepath) => new Promise(resolve => {
+export const toJsonFromFile = (sourceFileConfig, sourceFilepath) => new Promise(resolve => {
 	const convertedData = [];
 	const rd = readline.createInterface({input: fs.createReadStream(sourceFilepath)});
 
@@ -32,7 +32,7 @@ export const convertToJsonFromFile = (sourceFileConfig, sourceFilepath) => new P
 	});
 });
 
-export const convertToJson = (sourceFileConfig, sourceString) => new Promise(resolve => {
+export const toJson = (sourceFileConfig, sourceString) => new Promise(resolve => {
 	const lines = sourceString.match(/[^\r\n]+/g);
 
 	const convertedData = lines.map(line => {
