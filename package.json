@@ -1,6 +1,6 @@
 {
   "name": "positional-flat-file-to-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts a positional flat file to json",
   "main": "./dist/index.js",
   "dependencies": {
