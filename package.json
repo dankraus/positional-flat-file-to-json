@@ -3,15 +3,20 @@
   "version": "1.1.0",
   "description": "Converts a positional flat file to json",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {
     "fs-extra": "^4.0.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^7.2.3",
-    "babel-preset-es2015": "^6.24.1",
+    "@types/es6-promise": "0.0.33",
+    "@types/fs-extra": "^4.0.0",
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.0.25",
     "mocha": "^3.5.0",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.6.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "^2.4.2",
     "xo": "^0.18.2"
   },
   "scripts": {
@@ -20,15 +25,19 @@
     "dev": "npm test -- -w",
     "clean": "rm -rf dist",
     "prebuild": "npm run clean && npm run init",
-    "build": "babel ./src -d ./dist",
+    "build": "tsc",
     "pretest": "npm run build",
-    "test": "xo && mocha --compilers js:babel-core/register ./test/**/*.js",
+    "test": "xo && mocha --compilers ts:ts-node/register ./test/**/*.ts",
     "precommit": "npm test && npm run build",
     "prepublish": "npm run build"
   },
   "xo": {
     "env": [
       "mocha"
+    ],
+
+    "plugins": [
+      "tslint-eslint-rules"
     ],
     "rules": {
       "no-unused-vars": [

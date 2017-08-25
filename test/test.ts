@@ -6,7 +6,7 @@ import * as fs from 'fs-extra';
 import * as converter from '../src/index';
 
 describe('Converter', () => {
-	const sourceFileConfig = {
+	const flatFileConfig = {
 		zip: {
 			columnPosition: 1,
 			size: 5
@@ -22,7 +22,9 @@ describe('Converter', () => {
 	};
 
 	const sourceFilepath = path.join(__dirname, 'test-flat-file.txt');
+	const emptySourceFilepath = path.join(__dirname, 'test-empty-file.txt');
 	const sourceString = fs.readFileSync(sourceFilepath).toString();
+	const emptySourceString = '';
 	const outputFilepath = path.join(__dirname, 'tmp', 'converted-file.Json');
 
 	const expectedJson = [
@@ -49,22 +51,42 @@ describe('Converter', () => {
 	];
 
 	it('should read file and write converted Json to file', () => {
-		return converter.writeAsJsonFromFile(sourceFileConfig, sourceFilepath, outputFilepath).then(() => {
+		return converter.writeAsJsonFromFile(flatFileConfig, sourceFilepath, outputFilepath).then(() => {
 			return fs.readJson(outputFilepath).then(writtenJson => {
 				assert.deepEqual(writtenJson, expectedJson);
 			});
 		});
 	});
 
+	it('should read empty file and write converted empty array to file', () => {
+		return converter.writeAsJsonFromFile(flatFileConfig, emptySourceFilepath, outputFilepath).then(() => {
+			return fs.readJson(outputFilepath).then(writtenJson => {
+				assert.deepEqual(writtenJson, []);
+			});
+		});
+	});
+
 	it('should read file and return converted Json', () => {
-		return converter.toJsonFromFile(sourceFileConfig, sourceFilepath).then(result => {
+		return converter.toJsonFromFile(flatFileConfig, sourceFilepath).then(result => {
 			assert.deepEqual(result, expectedJson);
 		});
 	});
 
+	it('should read empty file and return empty array', () => {
+		return converter.toJsonFromFile(flatFileConfig, emptySourceFilepath).then(result => {
+			assert.deepEqual(result, []);
+		});
+	});
+
 	it('should return converted Json', () => {
-		return converter.toJson(sourceFileConfig, sourceString).then(result => {
+		return converter.toJson(flatFileConfig, sourceString).then(result => {
 			assert.deepEqual(result, expectedJson);
+		});
+	});
+
+	it('should return empty array when converting empty flat file', () => {
+		return converter.toJson(flatFileConfig, emptySourceString).then(result => {
+			assert.deepEqual(result, []);
 		});
 	});
 });
