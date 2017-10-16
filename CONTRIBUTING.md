@@ -17,3 +17,10 @@
 ## How to Open a New Issue
 1. Review existing GitHub Issues and ensure it hasn't already been reported. 
 2. Use and follow the Issue Template.
+
+## Issue Labels
+
+- `Accepting PRs`: these issues are specifically well suited for outside contributors.
+- `Your first PR`: these issues are small and appropriate for people who wish to familiarize themselves with GitHub pull requests and/or the project's contributor guidelines, build process, and running tests. You are welcome to work on issues that are not tagged with these labels. However, please be sure to touch base with a maintainer via comments on the issue before attempting to solve it.
+
+Remember, for all issues you choose to work on please communicate on the issue that you are claiming it to avoid duplicated work.
